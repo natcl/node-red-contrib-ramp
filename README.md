@@ -1,3 +1,3 @@
-# node-red-contrib-template
+# node-red-contrib-ramp
 
-A template you can fork to quickly start working on a Node-RED node.
+A Node-RED node that creates a timed ramp between numbers or arrays.

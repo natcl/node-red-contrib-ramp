@@ -1,0 +1,70 @@
+[
+    {
+        "id": "bc6d1560.efb27",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "78b32d7f.c091b4",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"source\": 1, \"target\":100, \"time\": 2000}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "31b1e716.e16d8"
+            ]
+        ]
+    },
+    {
+        "id": "31b1e716.e16d8",
+        "type": "ramp",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "7c97bf10.e4d49"
+            ]
+        ]
+    },
+    {
+        "id": "7c97bf10.e4d49",
+        "type": "debug",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e55f89ab.6f1ec8",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"source\": [255,0,0], \"target\":[0,255,0], \"time\": 2000}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "31b1e716.e16d8"
+            ]
+        ]
+    }
+]
