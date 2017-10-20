@@ -32,7 +32,8 @@
         "y": 160,
         "wires": [
             [
-                "7c97bf10.e4d49"
+                "7c97bf10.e4d49",
+                "9f762541.7559b"
             ]
         ]
     },
@@ -41,11 +42,11 @@
         "type": "debug",
         "z": "bc6d1560.efb27",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "false",
-        "x": 670,
-        "y": 160,
+        "x": 770,
+        "y": 20,
         "wires": []
     },
     {
@@ -64,6 +65,92 @@
         "wires": [
             [
                 "31b1e716.e16d8"
+            ]
+        ]
+    },
+    {
+        "id": "8cf1d7e9.bd02a",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\":0, \"time\": 2000}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "31b1e716.e16d8"
+            ]
+        ]
+    },
+    {
+        "id": "663ce37d.356f64",
+        "type": "change",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$map(payload, function($x) {$round($x)})",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 100,
+        "wires": [
+            [
+                "a69683f.d3cc68"
+            ]
+        ]
+    },
+    {
+        "id": "a69683f.d3cc68",
+        "type": "debug",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1050,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9f762541.7559b",
+        "type": "switch",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "property": "payload.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "663ce37d.356f64"
+            ],
+            [
+                "a69683f.d3cc68"
             ]
         ]
     }

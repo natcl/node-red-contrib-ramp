@@ -3,13 +3,13 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, config);
     var node = this;
 
-    node.source = null;
     node.target = null;
     node.interval = 25;
     node.timer = null;
 
     node.on('input', function(msg) {
       node.count = 0;
+      node.time = msg.payload.time;
       var source;
       var target;
 
@@ -30,8 +30,6 @@ module.exports = function(RED) {
           node.target = target;
       }
 
-      node.time = msg.payload.time;
-
       var values = valuesToInterpolate(source, target, node.interval, node.time);
       var realInterval;
       if (Array.isArray(values[0])) {
@@ -40,39 +38,32 @@ module.exports = function(RED) {
           realInterval = (node.time / values.length);
       }
 
-      node.timer = setInterval(outputSteps, realInterval, values, msg);
+      node.timer = setInterval(outputSteps, realInterval, values);
+
+      function outputSteps(values){
+          var endOfArray;
+
+          if (Array.isArray(values[0])) {
+              endOfArray = values[0].length;
+              var output = [];
+              for (var e in values) {
+                  output.push(values[e][node.count]);
+              }
+              msg.payload = output;
+              node.send(msg);
+          } else {
+              endOfArray = values.length;
+              msg.payload = values[node.count];
+              node.send(msg);
+          }
+          if (node.count == endOfArray-1) {
+                  clearInterval(node.timer);
+                  node.count = 0;
+                  return;
+          }
+          node.count++;
+      }
     });
-
-    function outputSteps(values, msg){
-        var endOfArray;
-
-        if (Array.isArray(values[0])) {
-            endOfArray = values[0].length;
-            var output = [];
-            for (var e in values) {
-                output.push(values[e][node.count]);
-            }
-            msg.payload = output;
-            node.send(msg);
-        } else {
-            endOfArray = values.length;
-            msg.payload = values[node.count];
-            node.send(msg);
-        }
-        if (node.count == endOfArray-1) {
-                clearInterval(node.timer);
-                node.count = 0;
-                return;
-        }
-        node.count++;
-    }
-
-    function finish(timer){
-        clearInterval(timer);
-        count = 0;
-        console.log('And we\'re done');
-
-    }
 
     function valuesToInterpolate(source, target, interval, time) {
         let steps = Math.floor(time/interval);
