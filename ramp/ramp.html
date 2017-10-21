@@ -1,21 +1,62 @@
 <script type="text/javascript">
     RED.nodes.registerType('ramp',{
-        category: 'function',
-        color: '#a6bbcf',
+        category: 'signals',
+        color: '#c0deed',
         defaults: {
-            name: {value:""}
+            name: {value:""},
+            source: {value:"", validate: RED.validators.typedInput("sourceType")},
+            target: {value:"", validate: RED.validators.typedInput("targetType")},
+            time: {value: "", required: false, validate: function(v) {
+                if (Number.isInteger(parseInt(v)) || v === "") {
+                    return true;
+                }
+            }},
+            samplingrate: {value: 20, validate: RED.validators.number()}
         },
         inputs:1,
         outputs:1,
-        icon: "file.png",
+        icon: "ramp.png",
         label: function() {
             return this.name || "ramp";
         },
-        paletteLabel: "ramp"
+        paletteLabel: "ramp",
+        oneditprepare: function() {
+            $("#node-input-source").typedInput({
+                default: 'num',
+                typeField: $("#node-input-sourceType"),
+                types:['num','json','bin']
+            });
+            $("#node-input-target").typedInput({
+                default: 'num',
+                typeField: $("#node-input-targetType"),
+                types:['num','json','bin']
+            });
+        }
     });
 </script>
 
 <script type="text/x-red" data-template-name="ramp">
+    <div class="form-row">
+        <label for="node-input-source"><i class="fa fa-envelope"></i> Source</label>
+        <input type="text" id="node-input-source" style="width:70%">
+        <input type="hidden" id="node-input-sourceType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-target"><i class="fa fa-envelope"></i> Target</label>
+        <input type="text" id="node-input-target" style="width:70%">
+        <input type="hidden" id="node-input-targetType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-time" style="width: 120px;"><i class="fa fa-clock-o"></i> Time</label>
+        <input type="text" id="node-input-time" placeholder="ms" style="text-align:end; width:50px !important">
+        <span>Milisecond(s)</span>
+    </div>
+    <div class="form-row">
+        <label for="node-input-samplingrate" style="width: 120px;"><i class="fa fa-clock-o"></i> Sampling rate</label>
+        <input type="text" id="node-input-samplingrate" placeholder="ms" style="text-align:end; width:50px !important">
+        <span>Milisecond(s)</span>
+    </div>
+
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">

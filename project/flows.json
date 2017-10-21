@@ -19,21 +19,7 @@
         "y": 160,
         "wires": [
             [
-                "31b1e716.e16d8"
-            ]
-        ]
-    },
-    {
-        "id": "31b1e716.e16d8",
-        "type": "ramp",
-        "z": "bc6d1560.efb27",
-        "name": "",
-        "x": 510,
-        "y": 160,
-        "wires": [
-            [
-                "7c97bf10.e4d49",
-                "9f762541.7559b"
+                "a5756113.64b03"
             ]
         ]
     },
@@ -64,7 +50,7 @@
         "y": 220,
         "wires": [
             [
-                "31b1e716.e16d8"
+                "a5756113.64b03"
             ]
         ]
     },
@@ -83,7 +69,7 @@
         "y": 280,
         "wires": [
             [
-                "31b1e716.e16d8"
+                "a5756113.64b03"
             ]
         ]
     },
@@ -122,7 +108,7 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 1050,
+        "x": 1030,
         "y": 200,
         "wires": []
     },
@@ -151,6 +137,204 @@
             ],
             [
                 "a69683f.d3cc68"
+            ]
+        ]
+    },
+    {
+        "id": "a5756113.64b03",
+        "type": "ramp",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "source": "",
+        "target": "",
+        "time": "",
+        "samplingrate": "20",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "9f762541.7559b"
+            ]
+        ]
+    },
+    {
+        "id": "6db72344.383b7c",
+        "type": "ramp",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "source": "20",
+        "target": "",
+        "time": "2000",
+        "samplingrate": 20,
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "bab715de.0d6f6"
+            ]
+        ]
+    },
+    {
+        "id": "aefdaf44.535d38",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 322,
+        "y": 423,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "bab715de.0d6f6",
+        "type": "debug",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 690,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "8800a32f.28e58",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"source\": 200, \"target\": 300}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "75c7d297.61411c",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 1000}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "909f6101.28c928",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 500}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 330,
+        "y": 560,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "a4182db3.a9357",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 1500}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "51da3dea.d2b354",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 1999}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 340,
+        "y": 640,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "435ca280.cc9afc",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 2000}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 340,
+        "y": 680,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "23d55da3.edb47a",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": 0}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "6db72344.383b7c"
             ]
         ]
     }

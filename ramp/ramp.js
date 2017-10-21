@@ -3,34 +3,27 @@ module.exports = function(RED) {
     RED.nodes.createNode(this, config);
     var node = this;
 
-    node.target = null;
-    node.interval = 25;
+    node.target = "";
+    node.interval = config.samplingrate;
     node.timer = null;
 
     node.on('input', function(msg) {
+      if (node.timer) {
+        return;
+      }
       node.count = 0;
-      node.time = msg.payload.time;
-      var source;
-      var target;
-
-      if (msg.payload.hasOwnProperty('source') && msg.payload.hasOwnProperty('target')) {
-          source = msg.payload.source;
-          target = msg.payload.target;
-          node.target = target;
-      }
-
-      // If only target is present
+      node.time = config.time || msg.payload.time;
+      // If only target in payload
       if (!msg.payload.hasOwnProperty('source') && msg.payload.hasOwnProperty('target')) {
-          if (!node.target) {
-              node.warn('First set source and target');
-              return;
-          }
-          source = node.target;
-          target = msg.payload.target;
-          node.target = target;
+        node.source = config.source || node.target.toString() || msg.payload.target;
+      } else {
+        node.source = config.source || msg.payload.source;
       }
+      node.target = config.target || msg.payload.target;
+      node.source = JSON.parse(node.source);
+      node.target = JSON.parse(node.target);
 
-      var values = valuesToInterpolate(source, target, node.interval, node.time);
+      var values = valuesToInterpolate(node.source, node.target, node.interval, node.time);
       var realInterval;
       if (Array.isArray(values[0])) {
           realInterval = (node.time / values[0].length);
@@ -58,6 +51,7 @@ module.exports = function(RED) {
           }
           if (node.count == endOfArray-1) {
                   clearInterval(node.timer);
+                  node.timer = null;
                   node.count = 0;
                   return;
           }
