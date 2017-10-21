@@ -5,7 +5,9 @@
         defaults: {
             name: {value:""},
             source: {value:"", validate: RED.validators.typedInput("sourceType")},
+            sourceType: {value: "number"},
             target: {value:"", validate: RED.validators.typedInput("targetType")},
+            targetType: {value: "number"},
             time: {value: "", required: false, validate: function(v) {
                 if (Number.isInteger(parseInt(v)) || v === "") {
                     return true;
@@ -21,6 +23,9 @@
         },
         paletteLabel: "ramp",
         oneditprepare: function() {
+            $("#node-input-sourceType").val(this.sourceType);
+            $("#node-input-targetType").val(this.targetType);
+
             $("#node-input-source").typedInput({
                 default: 'num',
                 typeField: $("#node-input-sourceType"),

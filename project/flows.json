@@ -162,8 +162,10 @@
         "type": "ramp",
         "z": "bc6d1560.efb27",
         "name": "",
-        "source": "20",
-        "target": "",
+        "source": "0",
+        "sourceType": "num",
+        "target": "100",
+        "targetType": "num",
         "time": "2000",
         "samplingrate": 20,
         "x": 490,
@@ -332,6 +334,25 @@
         "once": false,
         "x": 330,
         "y": 720,
+        "wires": [
+            [
+                "6db72344.383b7c"
+            ]
+        ]
+    },
+    {
+        "id": "c1e83321.d8e5d",
+        "type": "inject",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "topic": "",
+        "payload": "{\"target\": [1,2,3,4]}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 350,
+        "y": 760,
         "wires": [
             [
                 "6db72344.383b7c"
