@@ -5,6 +5,21 @@
         "label": "Flow 1"
     },
     {
+        "id": "3e995894.22cab",
+        "type": "tab",
+        "label": "Flow 2"
+    },
+    {
+        "id": "82c1ad52.7a898",
+        "type": "tab",
+        "label": "Flow 3"
+    },
+    {
+        "id": "abf09bdc.ee9de",
+        "type": "tab",
+        "label": "Flow 4"
+    },
+    {
         "id": "78b32d7f.c091b4",
         "type": "inject",
         "z": "bc6d1560.efb27",
@@ -24,24 +39,12 @@
         ]
     },
     {
-        "id": "7c97bf10.e4d49",
-        "type": "debug",
-        "z": "bc6d1560.efb27",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 770,
-        "y": 20,
-        "wires": []
-    },
-    {
         "id": "e55f89ab.6f1ec8",
         "type": "inject",
         "z": "bc6d1560.efb27",
         "name": "",
         "topic": "",
-        "payload": "{\"source\": [255,0,0], \"target\":[0,255,0], \"time\": 2000}",
+        "payload": "{\"source\": [255,0,0], \"target\": [0,255,0], \"time\": 2000}",
         "payloadType": "json",
         "repeat": "",
         "crontab": "",
@@ -50,7 +53,8 @@
         "y": 220,
         "wires": [
             [
-                "a5756113.64b03"
+                "a5756113.64b03",
+                "1019ab99.467ce4"
             ]
         ]
     },
@@ -193,7 +197,7 @@
         "y": 423,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -205,7 +209,7 @@
         "active": true,
         "console": "false",
         "complete": "false",
-        "x": 690,
+        "x": 710,
         "y": 420,
         "wires": []
     },
@@ -224,7 +228,7 @@
         "y": 480,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -243,7 +247,7 @@
         "y": 520,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -262,7 +266,7 @@
         "y": 560,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -281,7 +285,7 @@
         "y": 600,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -300,7 +304,7 @@
         "y": 640,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -319,7 +323,7 @@
         "y": 680,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -338,7 +342,7 @@
         "y": 720,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
             ]
         ]
     },
@@ -357,7 +361,615 @@
         "y": 760,
         "wires": [
             [
-                "6db72344.383b7c"
+                "5630acd8.aad494"
+            ]
+        ]
+    },
+    {
+        "id": "1019ab99.467ce4",
+        "type": "debug",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 455,
+        "y": 241,
+        "wires": []
+    },
+    {
+        "id": "5630acd8.aad494",
+        "type": "ramp",
+        "z": "bc6d1560.efb27",
+        "name": "",
+        "source": "",
+        "sourceType": "num",
+        "target": "",
+        "targetType": "num",
+        "time": "2000",
+        "samplingrate": 20,
+        "x": 570,
+        "y": 540,
+        "wires": [
+            [
+                "bab715de.0d6f6"
+            ]
+        ]
+    },
+    {
+        "id": "cef50a4c.d683c",
+        "type": "ramp",
+        "z": "3e995894.22cab",
+        "name": "",
+        "source": "0",
+        "sourceType": "num",
+        "target": "100",
+        "targetType": "num",
+        "time": "2000",
+        "samplingrate": 20,
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "8495a543.0cba4"
+            ]
+        ]
+    },
+    {
+        "id": "8495a543.0cba4",
+        "type": "debug",
+        "z": "3e995894.22cab",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 530,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "11052d06.b133eb",
+        "type": "inject",
+        "z": "3e995894.22cab",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "cef50a4c.d683c"
+            ]
+        ]
+    },
+    {
+        "id": "1e78ed6e.a9e823",
+        "type": "ramp",
+        "z": "3e995894.22cab",
+        "name": "",
+        "source": "[255,0,255]",
+        "sourceType": "json",
+        "target": "[0,255,0]",
+        "targetType": "json",
+        "time": "2000",
+        "samplingrate": 20,
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "6d82f603.3f2838"
+            ]
+        ]
+    },
+    {
+        "id": "13339343.523335",
+        "type": "inject",
+        "z": "3e995894.22cab",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "1e78ed6e.a9e823"
+            ]
+        ]
+    },
+    {
+        "id": "90c84eb4.f595d8",
+        "type": "debug",
+        "z": "3e995894.22cab",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 750,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6d82f603.3f2838",
+        "type": "change",
+        "z": "3e995894.22cab",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$map(payload, function($x) {$round($x)})",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "90c84eb4.f595d8"
+            ]
+        ]
+    },
+    {
+        "id": "d001dc53.264018",
+        "type": "template",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "yaml",
+        "syntax": "mustache",
+        "template": "canada:\n    fruits:\n        - bleuet\n        - framboise\n    légumes:\n        - tomate\n        - patate\n        - navet\nmexique:\n    fruits:\n        - café\n        - orange\n    légumes:\n        - avocats",
+        "output": "str",
+        "x": 370,
+        "y": 100,
+        "wires": [
+            [
+                "9e173897.ccab38"
+            ]
+        ]
+    },
+    {
+        "id": "a631ad2e.febf2",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "d001dc53.264018"
+            ]
+        ]
+    },
+    {
+        "id": "9e173897.ccab38",
+        "type": "yaml",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "588f9990.21743"
+            ]
+        ]
+    },
+    {
+        "id": "588f9990.21743",
+        "type": "change",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "food",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d6a8619.27e0c8",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "repas",
+        "payloadType": "flow",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 300,
+        "wires": [
+            [
+                "3f38369a.fed952"
+            ]
+        ]
+    },
+    {
+        "id": "3f38369a.fed952",
+        "type": "debug",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "249e58ed.5231b8",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "mexique",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "6d5ef611.7e4c9"
+            ]
+        ]
+    },
+    {
+        "id": "6d5ef611.7e4c9",
+        "type": "change",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$lookup($flowContext('food'), payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "3f38369a.fed952"
+            ]
+        ]
+    },
+    {
+        "id": "799e8f63.f79ab8",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "canada",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "6d5ef611.7e4c9"
+            ]
+        ]
+    },
+    {
+        "id": "ea873589.6832e8",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "[\"mexique\", \"fruits\"]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "cc133563.e5759"
+            ]
+        ]
+    },
+    {
+        "id": "cc133563.e5759",
+        "type": "change",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$lookup($flowContext('food'), payload[0]) ~> $lookup(payload[1])",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 520,
+        "wires": [
+            [
+                "3f38369a.fed952"
+            ]
+        ]
+    },
+    {
+        "id": "c19fefdd.daac4",
+        "type": "inject",
+        "z": "82c1ad52.7a898",
+        "name": "",
+        "topic": "",
+        "payload": "[\"canada\", \"légumes\"]",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "cc133563.e5759"
+            ]
+        ]
+    },
+    {
+        "id": "b434fc1b.4f748",
+        "type": "comment",
+        "z": "82c1ad52.7a898",
+        "name": "Create a complex stucture",
+        "info": "",
+        "x": 210,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f15b4ee9.993e7",
+        "type": "comment",
+        "z": "82c1ad52.7a898",
+        "name": "Filter the structure",
+        "info": "",
+        "x": 190,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bf97d8de.21094",
+        "type": "template",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "yaml",
+        "syntax": "mustache",
+        "template": "canada:\n    fruits:\n        - 0x32\n        - off\n    légumes:\n        - tomate\n        - patate\n        - navet\nmexique:\n    fruits:\n        - café\n        - orange\n    légumes:\n        - avocats",
+        "output": "str",
+        "x": 330,
+        "y": 80,
+        "wires": [
+            [
+                "ca94219.d514c6"
+            ]
+        ]
+    },
+    {
+        "id": "886afd1.46d628",
+        "type": "inject",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "bf97d8de.21094"
+            ]
+        ]
+    },
+    {
+        "id": "ca94219.d514c6",
+        "type": "yaml",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "3cf1a6d6.a93c42"
+            ]
+        ]
+    },
+    {
+        "id": "3cf1a6d6.a93c42",
+        "type": "debug",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 714,
+        "y": 152,
+        "wires": []
+    },
+    {
+        "id": "95015afa.f9b988",
+        "type": "template",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "yaml",
+        "syntax": "mustache",
+        "template": "canada:\n    fruits:\n        - 0x32\n        - off\n    légumes:\n        - tomate\n        - patate\n        - navet\nmexique:\n    fruits:\n        - café\n        - orange\n    légumes:\n        - avocats",
+        "output": "str",
+        "x": 370,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb88542a.5b5d18",
+        "type": "inject",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "95015afa.f9b988"
+            ]
+        ]
+    },
+    {
+        "id": "5e12294.cd95858",
+        "type": "template",
+        "z": "abf09bdc.ee9de",
+        "name": "html",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<head>\n    <style>\n        {{{payload.style}}}\n    </style>\n</head>\n\n\n<table width=\"100%\">\n  <tr>\n    <th>Name</th>\n    <th>IP</th> \n  </tr>\n  {{#payload}}\n  <tr>\n    <td>{{{name}}}</td>\n    <td>{{ip}}</td> \n  </tr>\n  {{/payload}}\n</table>",
+        "output": "str",
+        "x": 790,
+        "y": 600,
+        "wires": [
+            [
+                "e4722977.4ccaa"
+            ]
+        ]
+    },
+    {
+        "id": "e4722977.4ccaa",
+        "type": "http response",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "x": 930,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a7969754.8036f",
+        "type": "template",
+        "z": "abf09bdc.ee9de",
+        "name": "css",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "table {\n    color: #333;\n    font-family: Helvetica, Arial, sans-serif;\n    width: 100%;\n    border-collapse: collapse;\n    border-spacing: 0;\n}\ntd, th {\n    border: 1px solid transparent;\n    /* No more visible border */\n    height: 30px;\n    transition: all 0.3s;\n    /* Simple transition for hover effect */\n}\nth {\n    background: #DFDFDF;\n    /* Darken header a bit */\n    font-weight: bold;\n}\ntd {\n    background: #FAFAFA;\n    text-align: center;\n}\n\n/* Cells in even rows (2,4,6...) are one color */\n\ntr:nth-child(even) td {\n    background: #F1F1F1;\n}\n\n/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */\n\ntr:nth-child(odd) td {\n    background: #FEFEFE;\n}\ntr td:hover {\n    background: #666;\n    color: #FFF;\n}\n\n/* Hover cell effect! */",
+        "x": 650,
+        "y": 600,
+        "wires": [
+            [
+                "5e12294.cd95858"
+            ]
+        ]
+    },
+    {
+        "id": "aee72918.3a962",
+        "type": "template",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "[\n    {\"name\": \"Computer 1\", \"ip\": \"6.3.6.6\"},\n    {\"name\": \"Computer 2\", \"ip\": \"6.3.6.6\"},\n    {\"name\": \"Computer 3\", \"ip\": \"6.7.6.6\"},\n    {\"name\": \"Computer 4\", \"ip\": \"6.4.6.6\"}\n]\n    ",
+        "output": "str",
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "f12d5b88.7241f8"
+            ]
+        ]
+    },
+    {
+        "id": "f12d5b88.7241f8",
+        "type": "json",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "x": 510,
+        "y": 600,
+        "wires": [
+            [
+                "a7969754.8036f"
+            ]
+        ]
+    },
+    {
+        "id": "c644e94a.05ad68",
+        "type": "http in",
+        "z": "abf09bdc.ee9de",
+        "name": "",
+        "url": "/table",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "aee72918.3a962"
             ]
         ]
     }

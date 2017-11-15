@@ -20,8 +20,12 @@ module.exports = function(RED) {
         node.source = config.source || msg.payload.source;
       }
       node.target = config.target || msg.payload.target;
-      node.source = JSON.parse(node.source);
-      node.target = JSON.parse(node.target);
+
+      if (!Array.isArray(node.source) && !Array.isArray(node.target)) {
+          node.source = JSON.parse(node.source);
+          node.target = JSON.parse(node.target);
+      }
+
 
       var values = valuesToInterpolate(node.source, node.target, node.interval, node.time);
       var realInterval;
