@@ -15,7 +15,7 @@ module.exports = function(RED) {
       node.time = config.time || msg.payload.time;
       // If only target in payload
       if (!msg.payload.hasOwnProperty('source') && msg.payload.hasOwnProperty('target')) {
-        node.source = config.source || node.target.toString() || msg.payload.target;
+        node.source = config.source || node.target || msg.payload.target;
       } else {
         node.source = config.source || msg.payload.source;
       }
