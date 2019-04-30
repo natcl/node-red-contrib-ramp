@@ -42,6 +42,7 @@ module.exports = function(RED) {
 
           if (Array.isArray(values[0])) {
               endOfArray = values[0].length;
+              if (node.count == endOfArray-1) msg.end = true
               var output = [];
               for (var e in values) {
                   output.push(values[e][node.count]);
@@ -50,6 +51,7 @@ module.exports = function(RED) {
               node.send(msg);
           } else {
               endOfArray = values.length;
+              if (node.count == endOfArray-1) msg.end = true
               msg.payload = values[node.count];
               node.send(msg);
           }
